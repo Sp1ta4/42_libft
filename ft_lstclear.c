@@ -6,7 +6,7 @@
 /*   By: ggevorgi <sp1tak.gg@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 20:34:46 by ggevorgi          #+#    #+#             */
-/*   Updated: 2024/11/02 21:52:28 by ggevorgi         ###   ########.fr       */
+/*   Updated: 2024/11/13 20:11:35 by ggevorgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	while (*lst)
 	{
 		del((*lst)->content);
-		temp = *lst->next;
+		temp = (*lst)->next;
 		free(*lst);
 		*lst = temp;
 	}

@@ -6,7 +6,7 @@
 /*   By: ggevorgi <sp1tak.gg@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 17:39:44 by ggevorgi          #+#    #+#             */
-/*   Updated: 2024/10/27 16:00:35 by ggevorgi         ###   ########.fr       */
+/*   Updated: 2024/11/12 22:43:37 by ggevorgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@ char	*ft_strrchr(const char *s, int c)
 {
 	size_t	i;
 
-	i = ft_strlen(s) - 1;
-	while (s[i] != '\0' && s[i] != c)
-	{
-		i--;
-	}
-	return ((char *)&s[i]);
+	i = ft_strlen(s) + 1;
+	while (--i > 0)
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);	
+	if (s[i] == (char)c)
+		return ((char *)&s[i]);	
+	else
+		return (NULL);
 }

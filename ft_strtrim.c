@@ -6,7 +6,7 @@
 /*   By: ggevorgi <sp1tak.gg@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 22:53:37 by ggevorgi          #+#    #+#             */
-/*   Updated: 2024/10/27 23:57:55 by ggevorgi         ###   ########.fr       */
+/*   Updated: 2024/11/13 19:59:27 by ggevorgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	start_index = ft_trim_start_index(s1, set);
 	end_index = ft_trim_end_index(s1, set);
-	len = end_index - start_index + 1;
+	if (start_index > end_index)
+		len = 0;
+	else
+		len = end_index - start_index + 1;
 	res = (char *)malloc(sizeof(char) * (len + 1));
 	if (!res)
 		return (NULL);

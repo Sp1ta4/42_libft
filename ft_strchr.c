@@ -6,7 +6,7 @@
 /*   By: ggevorgi <sp1tak.gg@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 17:29:22 by ggevorgi          #+#    #+#             */
-/*   Updated: 2024/11/01 23:18:17 by ggevorgi         ###   ########.fr       */
+/*   Updated: 2024/11/12 22:45:43 by ggevorgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	char	*scpy;
-
-	scpy = (char *) s;
-	while (*scpy != c)
-		scpy++;
-	return (scpy);
+	
+	while (*s && *s != (char)c)
+		s++;
+	if (*s == (char)c)
+		return ((char *)s);
+	else
+		return (NULL);
 }
+

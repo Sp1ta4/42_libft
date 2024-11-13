@@ -6,7 +6,7 @@
 /*   By: ggevorgi <sp1tak.gg@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 17:21:22 by ggevorgi          #+#    #+#             */
-/*   Updated: 2024/10/27 18:14:50 by ggevorgi         ###   ########.fr       */
+/*   Updated: 2024/11/13 19:24:37 by ggevorgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	void			*res;
+	void	*res;
 
-	if (nmemb == 0 || size == 0)
+	if (nmemb && size && size > 65536/nmemb)
 		return (NULL);
 	res = malloc(nmemb * size);
 	if (!res)

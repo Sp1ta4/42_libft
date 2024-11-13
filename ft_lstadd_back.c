@@ -6,7 +6,7 @@
 /*   By: ggevorgi <sp1tak.gg@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 21:50:22 by ggevorgi          #+#    #+#             */
-/*   Updated: 2024/11/02 21:52:04 by ggevorgi         ###   ########.fr       */
+/*   Updated: 2024/11/13 20:09:13 by ggevorgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	lstcpy;
+	t_list	*lstcpy;
 
 	if (!lst || !new)
 		return ;

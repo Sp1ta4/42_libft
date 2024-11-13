@@ -6,7 +6,7 @@
 /*   By: ggevorgi <sp1tak.gg@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 16:08:08 by ggevorgi          #+#    #+#             */
-/*   Updated: 2024/10/27 18:15:22 by ggevorgi         ###   ########.fr       */
+/*   Updated: 2024/11/13 19:00:19 by ggevorgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ int	ft_atoi(const char *nptr)
 	result = 0;
 	nptr_cpy = ft_trim_start((char *)nptr);
 	is_negative = 1;
-	if (*nptr_cpy == '-')
+	if (*nptr_cpy == '-' || *nptr_cpy == '+')
 	{
-		is_negative = -1;
+		if (*nptr_cpy == '-')
+			is_negative = -1;
 		++nptr_cpy;
 	}
-	if (*nptr_cpy == '+')
-		++nptr_cpy;
+	
 	while (ft_isdigit(*nptr_cpy))
 	{
 		result = result * 10 + (*nptr_cpy - 48);
