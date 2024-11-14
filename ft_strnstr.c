@@ -6,7 +6,7 @@
 /*   By: ggevorgi <sp1tak.gg@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 23:29:27 by ggevorgi          #+#    #+#             */
-/*   Updated: 2024/11/01 23:16:46 by ggevorgi         ###   ########.fr       */
+/*   Updated: 2024/11/14 15:15:37 by ggevorgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,47 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 {
 	size_t	i;
 	size_t	j;
-	int		is_contain;
 
-	i = -1;
-	if (ft_strlen(needle) == 0)
+	if (!needle[0])
 		return ((char *)haystack);
+	i = -1;
 	while (haystack[++i] != '\0' && i < n)
 	{
 		j = 0;
-		is_contain = 1;
 		while (needle[j] != '\0' && (j + i) < n)
 		{
 			if (haystack[i + j] != needle[j])
-			{
-				is_contain = 0;
 				break ;
-			}
 			j++;
 		}
-		if (is_contain && needle[j] == '\0')
+		if (needle[j] == '\0')
 			return ((char *)&haystack[i]);
 	}
 	return (NULL);
 }
+//  char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+// {
+// 	size_t	i;
+// 	size_t	j;
+// 	size_t	n_len;
+
+// 	i = 0;
+// 	n_len = ft_strlen(needle);
+// 	if (n_len == 0)
+// 		return ((char *)haystack);
+// 	while (i < len && haystack[i])
+// 	{
+// 		if (haystack[i] == needle[0])
+// 		{
+// 			j = 0;
+// 			while (j < n_len && i + j < len && haystack[i + j] == needle[j])
+// 				j++;
+// 		}
+// 		if (j == n_len)
+// 			return ((char *)&haystack[i]);
+// 		i++;
+// 	}
+// 	return (NULL);
+// }
+
+

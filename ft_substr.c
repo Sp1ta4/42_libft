@@ -6,7 +6,7 @@
 /*   By: ggevorgi <sp1tak.gg@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 20:12:00 by ggevorgi          #+#    #+#             */
-/*   Updated: 2024/10/27 21:44:41 by ggevorgi         ###   ########.fr       */
+/*   Updated: 2024/11/14 15:18:13 by ggevorgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	slen;
 	char	*res;
 
-	slen = ft_strlen(s);
 	if (!s)
 		return (NULL);
+	slen = ft_strlen(s);
 	if (start >= slen)
 		return (ft_strdup(""));
 	if (len > slen - start)
