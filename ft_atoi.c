@@ -42,7 +42,6 @@ int	ft_atoi(const char *nptr)
 			is_negative = -1;
 		++nptr_cpy;
 	}
-	
 	while (ft_isdigit(*nptr_cpy))
 	{
 		result = result * 10 + (*nptr_cpy - 48);
