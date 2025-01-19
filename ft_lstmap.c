@@ -6,7 +6,7 @@
 /*   By: ggevorgi <sp1tak.gg@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 20:53:02 by ggevorgi          #+#    #+#             */
-/*   Updated: 2025/01/18 21:28:24 by ggevorgi         ###   ########.fr       */
+/*   Updated: 2025/01/19 17:08:46 by ggevorgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,16 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new_list;
 	t_list	*new_node;
-	void	*new_content;
 
-	if (!lst || !f || !del)
-		return (NULL);
 	new_list = NULL;
+	if (!f || !del)
+		return (NULL);
 	while (lst)
 	{
-		new_content = f(lst->content);
-		if (!new_content)
-		{
-			ft_lstclear(&new_list, del);
-			return (NULL);
-		}
-		new_node = ft_lstnew(new_content);
+		new_node = ft_lstnew(f(lst->content));
 		if (!new_node)
 		{
 			ft_lstclear(&new_list, del);
-			del(new_content);
 			return (NULL);
 		}
 		ft_lstadd_back(&new_list, new_node);
@@ -41,4 +33,3 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (new_list);
 }
-
